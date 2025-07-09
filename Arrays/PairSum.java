@@ -4,21 +4,14 @@ class PairSum
     public static int[] find(int a[],int n,int t)
     {
         int min=Integer.MAX_VALUE,max=Integer.MIN_VALUE;
-        int l=0,r=0;
-        for(int i=0;i<n;i++)
+          int l=0,r=0,f=0;
+        for(f=0;f<n-1;f++)
         {
-           if(a[i]<min)
-           {
-            min=a[i];
-            l=i;
-           }
-           else if(a[i]>max)
-           {
-            max=a[i];
-            r=i;
-           }
+            if(a[f]>a[f+1])
+            break;
         }
-        //System.out.println(l+" "+r);
+        l=(f+1)%n;
+        r=f;
         while(l!=r)
         {
             if(a[l]+a[r]==t)
